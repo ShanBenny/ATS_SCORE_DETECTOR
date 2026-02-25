@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATS Score Detector Pro</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="badge">Career Intelligence Platform</p>
+      <h1>ATS Score Detector Pro</h1>
+      <p>Upload your resume, paste any job description, and get a clearer ATS score with ranked optimization actions, resume tailoring, and job tracking analytics.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="card input-grid">
+      <div>
+        <h2>1) Resume Input</h2>
+        <input type="file" id="resumeFile" accept=".txt,.md,.doc,.docx,.pdf" />
+        <label for="resumeText">Or paste resume text</label>
+        <textarea id="resumeText" placeholder="Paste your resume text here..."></textarea>
+      </div>
+      <div>
+        <h2>2) Job Description</h2>
+        <label for="jobTitle">Job Title</label>
+        <input id="jobTitle" placeholder="Senior Product Manager" />
+        <label for="companyName">Company</label>
+        <input id="companyName" placeholder="Example Corp" />
+        <label for="jobDescription">Paste Job Description</label>
+        <textarea id="jobDescription" placeholder="Paste the full job posting..."></textarea>
+      </div>
+      <div>
+        <h2>3) Candidate Profile Enhancements</h2>
+        <label for="linkedinText">LinkedIn Profile (optional)</label>
+        <textarea id="linkedinText" placeholder="Paste your LinkedIn headline/about/experience for enhancement suggestions..."></textarea>
+        <button id="analyzeBtn" class="primary">Analyze ATS Match</button>
+      </div>
+    </section>
+
+    <section class="card score-card">
+      <h2>AI-Driven ATS Match Scoring</h2>
+      <div class="score-layout">
+        <div class="score-ring" aria-live="polite">
+          <svg width="180" height="180" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="50" class="track"/>
+            <circle cx="60" cy="60" r="50" class="progress" id="scoreProgress"/>
+          </svg>
+          <div class="score-value" id="scoreValue">0</div>
+          <small>/100</small>
+        </div>
+        <div>
+          <h3>Score breakdown</h3>
+          <ul id="scoreBreakdown"></ul>
+          <h3>Top findings</h3>
+          <ul id="topFindings"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Actionable Optimization Suggestions</h2>
+      <div class="split">
+        <div>
+          <h3>Missing Keywords & Skill Gaps</h3>
+          <ul id="missingKeywords"></ul>
+        </div>
+        <div>
+          <h3>Ranked Recommendations by Impact</h3>
+          <ol id="recommendations"></ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>AI Resume Builder & Tailor</h2>
+      <div class="split">
+        <div>
+          <label for="templateSelect">ATS-Friendly Template</label>
+          <select id="templateSelect">
+            <option value="classic">Classic Chronological</option>
+            <option value="skills">Skills-Forward Hybrid</option>
+            <option value="impact">Impact & Metrics Focus</option>
+          </select>
+          <button id="generateResumeBtn">Generate Optimized Resume</button>
+          <button id="generateCoverBtn">Generate Tailored Cover Letter</button>
+        </div>
+        <div>
+          <h3>Generated Output</h3>
+          <textarea id="generatedOutput" class="output" placeholder="Optimized resume and cover letter drafts appear here..."></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Job Tracker & Analytics Dashboard</h2>
+      <div class="split">
+        <div>
+          <button id="saveSubmissionBtn">Save This Submission</button>
+          <table>
+            <thead>
+              <tr><th>Date</th><th>Role</th><th>Company</th><th>ATS Score</th></tr>
+            </thead>
+            <tbody id="submissionTable"></tbody>
+          </table>
+        </div>
+        <div>
+          <h3>Score Trend</h3>
+          <canvas id="trendCanvas" width="420" height="220"></canvas>
+          <h3>Best Match Jobs</h3>
+          <ul id="bestMatches"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Comparison & Benchmarking</h2>
+      <p>Estimated relative performance versus common tools based on optimization depth and recommendation coverage.</p>
+      <table>
+        <thead>
+          <tr><th>Platform</th><th>Match Transparency</th><th>Optimization Depth</th><th>Expected Interview Lift</th></tr>
+        </thead>
+        <tbody id="benchmarkTable"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    Built for high-clarity ATS optimization at scale.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
